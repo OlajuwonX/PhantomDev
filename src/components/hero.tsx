@@ -1,6 +1,7 @@
 import { SparklesCore } from "./ui/sparkles"
 import {useTheme} from "./theme-provider";
 import NigeriaClock from "./ui/nigerian.clock";
+import GradientText from "./ui/GradientText";
 
 const Hero = () => {
 
@@ -21,16 +22,19 @@ const Hero = () => {
                     particleColor={particleColor}
                 />
             </div>
-            <div className="flex flex-col lg:flex-row md:flex-row gap-5 text-black dark:text-white py-20 md:my-25 lg:my-30  px-5 md:px-8 lg:px-10">
-                <div className="flex flex-col text-center w-full lg:w-[55%]">
-                    <h1 className="md:text-7xl text-3xl lg:text-6xl font-bold text-center text-black dark:text-white relative z-20">
+            <div className="flex flex-col md:flex-row gap-5 text-black dark:text-white py-20 md:my-25 lg:my-30  px-5 md:px-8 lg:px-10">
+                <div className="flex flex-col text-center w-full md:px-10 lg:px-20">
+                    <GradientText
+                        colors={["#0a5735", "#204db6", "#2b490a", "#22a3cb", "#40ffaa"]}
+                        animationSpeed={3}
+                        showBorder={false}
+                        className="custom-class"
+                    >
                         Full Stack Developer
-                    </h1>
+                    </GradientText>
                     <p className="text-2xl md:text-2xl lg:text-3xl pt-5 md:pt-8 lg:pt-10">
                         Helping brands + businesses thrive online through powerful websites & web applications.
                     </p>
-                </div>
-                <div className="flex flex-col items-center text-center justify-center">
                     <NigeriaClock />
                 </div>
             </div>

@@ -1,71 +1,33 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-interface TimeNow {
-    hours: number;
-    minutes: number;
-    seconds: number;
-}
-
-const NigerianClock: React.FC = () => {
-    const [time, setTime] = useState<TimeNow>({
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-    });
+const NigeriaClock: React.FC = () => {
+    const [time, setTime] = useState<string>("");
 
     useEffect(() => {
-        const tick = () => {
-            const now = new Date(
-                new Date().toLocaleString("en-US", { timeZone: "Africa/Lagos" })
-            );
-
-            setTime({
-                hours: now.getHours(),
-                minutes: now.getMinutes(),
-                seconds: now.getSeconds(),
-            });
+        const updateTime = () => {
+            const now = new Date();
+            const options: Intl.DateTimeFormatOptions = {
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+                hour12: false,
+                timeZone: "Africa/Lagos",
+            };
+            const formatter = new Intl.DateTimeFormat("en-GB", options);
+            setTime(formatter.format(now));
         };
 
-        tick();
-        const interval = setInterval(tick, 1000);
+        updateTime();
+        const interval = setInterval(updateTime, 1000);
 
         return () => clearInterval(interval);
     }, []);
 
     return (
-        <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
-            <div className="flex flex-col p-2 rounded-xl ">
-        <span className="countdown font-mono text-4xl lg:text-5xl">
-          <span
-              style={{ "--value": time.hours } as React.CSSProperties}
-              aria-live="polite"
-          >
-            {time.hours}
-          </span>
-        </span>
-            </div>
-            <div className="flex flex-col p-2 rounded-xl ">
-        <span className="countdown font-mono text-4xl lg:text-5xl">
-          <span
-              style={{ "--value": time.minutes } as React.CSSProperties}
-              aria-live="polite"
-          >
-            {time.minutes}
-          </span>
-        </span>
-            </div>
-            <div className="flex flex-col p-2 rounded-xl">
-        <span className="countdown font-mono text-4xl lg:text-5xl">
-          <span
-              style={{ "--value": time.seconds } as React.CSSProperties}
-              aria-live="polite"
-          >
-            {time.seconds}
-          </span>
-        </span>
-            </div>
+        <div className="text-4xl font-bold tracking-widest mt-5 items-center justify-center">
+            {time}
         </div>
     );
 };
 
-export default NigerianClock;
+export default NigeriaClock;
