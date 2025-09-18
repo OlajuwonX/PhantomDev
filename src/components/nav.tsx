@@ -1,10 +1,14 @@
-import ToggleTheme from "./ui/toggle.theme";
+
+import useMediaQuery from "../hooks/useMediaQuery";
+import Mobile from "./mobile";
+import Desktop from "./desktop";
 
 const Nav = () => {
+    const isMobile = useMediaQuery("(max-width: 760px)");
     return (
         <div>
-            <ToggleTheme />
+            {isMobile ? <Mobile /> : <Desktop />}
         </div>
-    )
-}
-export default Nav
+    );
+};
+export default Nav;

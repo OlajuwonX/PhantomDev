@@ -4,12 +4,15 @@ import NigeriaClock from "./ui/nigerian.clock";
 import GradientText from "./ui/GradientText";
 import TextType from "./ui/text.type";
 import DownloadCVButton from "./download.cv";
+import {useNavigate} from "react-router-dom";
 
 
 
 const Hero = () => {
     const {theme} = useTheme();
     const particleColor = theme === "dark" ? "#FFFFFF" : "#000000";
+
+    const navigate = useNavigate();
 
 
 
@@ -48,7 +51,11 @@ const Hero = () => {
                     />
                     <NigeriaClock />
                     <DownloadCVButton fileUrl="/OlajuwonCV.pdf" fileName="Phantom-Dev.pdf"/>
-                    {/*Add link to view projects*/}
+                    <button className="px-5 py-2 rounded-xl bg-green-700 font-semibold hover:bg-green-600 cursor-pointer transition-all z-10"
+                            onClick={() => navigate("/project")}
+                    >
+                        ➡️ My Projects
+                    </button>
                 </div>
             </div>
         </div>
