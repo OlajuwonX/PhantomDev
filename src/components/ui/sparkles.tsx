@@ -21,7 +21,6 @@ export const SparklesCore = (props: ParticlesProps) => {
   const {
     id,
     className,
-    background,
     minSize,
     maxSize,
     speed,
@@ -58,11 +57,6 @@ export const SparklesCore = (props: ParticlesProps) => {
           className={cn("h-full w-full")}
           particlesLoaded={particlesLoaded}
           options={{
-            background: {
-              color: {
-                value: background || "#0d47a1",
-              },
-            },
             fullScreen: {
               enable: false,
               zIndex: 1,
@@ -79,7 +73,7 @@ export const SparklesCore = (props: ParticlesProps) => {
                   enable: false,
                   mode: "repulse",
                 },
-                resize: true as any,
+                resize: true as never,
               },
               modes: {
                 push: {
