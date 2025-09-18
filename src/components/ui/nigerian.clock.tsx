@@ -24,7 +24,7 @@ const NigeriaClock: React.FC = () => {
     }, []);
 
     return (
-        <div className="text-4xl font-bold tracking-widest mt-5 items-center justify-center">
+        <div className="text-2xl md:text-3xl lg:text-3xl font-semibold tracking-widest items-center justify-center">
             {time}
         </div>
     );

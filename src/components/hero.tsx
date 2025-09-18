@@ -3,13 +3,12 @@ import {useTheme} from "./theme-provider";
 import NigeriaClock from "./ui/nigerian.clock";
 import GradientText from "./ui/GradientText";
 import TextType from "./ui/text.type";
+import DownloadCVButton from "./download.cv";
 
 
 
 const Hero = () => {
-
     const {theme} = useTheme();
-
     const particleColor = theme === "dark" ? "#FFFFFF" : "#000000";
 
 
@@ -26,11 +25,11 @@ const Hero = () => {
                     particleColor={particleColor}
                 />
             </div>
-            <div className="flex flex-col md:flex-row gap-5 text-black dark:text-white py-20 md:my-25 lg:my-30  px-5 md:px-8 lg:px-10">
-                <div className="flex flex-col text-center items-center justify-center w-full md:px-10 lg:px-20">
+            <div className="flex flex-col py-30 px-5 md:px-8 lg:px-10">
+                <div className="flex flex-col gap-5 text-center text-black dark:text-white items-center justify-center w-full md:px-10 lg:px-20">
                     <GradientText
                         colors={["#0a5735", "#204db6", "#2b490a", "#22a3cb", "#40ffaa"]}
-                        animationSpeed={3}
+                        animationSpeed={5}
                         showBorder={false}
                         className="custom-class"
                     >
@@ -39,15 +38,17 @@ const Hero = () => {
                     <TextType
                         text={[
                             "It's great to have you here.",
-                            "I help brands + businesses thrive online through powerful websites & web applications.",
+                            "I build powerful websites & webapps that help brands thrive online.",
                             "Click on the button below to download my resume and view my projects"
                         ]}
-                        typingSpeed={75}
-                        pauseDuration={1500}
+                        typingSpeed={85}
+                        pauseDuration={2000}
                         showCursor={true}
                         cursorCharacter="_"
                     />
                     <NigeriaClock />
+                    <DownloadCVButton fileUrl="/OlajuwonCV.pdf" fileName="Phantom-Dev.pdf"/>
+                    {/*Add link to view projects*/}
                 </div>
             </div>
         </div>

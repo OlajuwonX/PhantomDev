@@ -167,16 +167,16 @@ const TextType = ({
         Component,
         {
             ref: containerRef,
-            className: `inline-block text-2xl md:text-2xl lg:text-3xl pt-5 md:pt-8 lg:pt-10 whitespace-pre-wrap tracking-tight ${className}`,
+            className: `inline-block text-2xl md:text-2xl lg:text-3xl font-semibold whitespace-pre-wrap tracking-tight ${className}`,
             ...props
         },
-        <span className="inline text-2xl md:text-2xl lg:text-3xl pt-5 md:pt-8 lg:pt-10" >
+        <span className="inline text-2xl md:text-2xl lg:text-3xl font-semibold" >
       {displayedText}
     </span>,
         showCursor && (
             <span
                 ref={cursorRef}
-                className={`ml-1 text-2xl md:text-2xl lg:text-3xl inline-block opacity-100 ${shouldHideCursor ? 'hidden' : ''} ${cursorClassName}`}
+                className={`ml-1 text-2xl md:text-2xl lg:text-3xl inline-block font-bold opacity-100 ${shouldHideCursor ? 'hidden' : ''} ${cursorClassName}`}
             >
         {cursorCharacter}
       </span>
