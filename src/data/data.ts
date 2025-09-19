@@ -120,3 +120,60 @@ export const AboutData = [
             " the same excitement for building things. I believe the best work happens when ideas are shared and turned into something real. Weakness? I can be a perfectionist with design details, if something feels off, I’ll keep at it until it’s right. The good side of that is I rarely put out unfinished work."
     },
 ]
+
+export const ProjectData = [
+    {
+        id: 1,
+        name: "HireLens",
+        description: "HireLens makes your resume work smarter. Upload your CV, get an ATS score, a summary, and" +
+            " tailored recommendations to improve it—all in minutes. It is perfect for job seekers aiming to stand" +
+            " out.",
+        link: "https://hire-lens-phi.vercel.app/",
+        img: [
+            "/hl1.png", "/hl2.png", "/hl3.png",
+        ]
+    },
+    {
+        id: 2,
+        name: "Orvyn Media",
+        description: "Orvyn Media — a sleek portfolio website built for social media managers. It includes multiple" +
+            " pages to showcase services and pricing, Clean + modern UI design, Contact page that collects" +
+            " and organizes client inquire",
+        link: "https://www.orvynmedia.com/",
+        img: [
+            "/orvyn1.png", "/orvyn2.png", "/orvyn3.png", "/orvyn4.png",
+        ]
+    },
+    {
+        id: 3,
+        name: "XquisEat",
+        description: "XquisEat is a food delivery web app built with full e-commerce functionality, tailored for" +
+            " restaurants and hungry customers alike. It features a filter, cart, quantity adjust , View order" +
+            " summary in cart, Checkout seamlessly",
+        link: "https://xquiseat.pages.dev/",
+        img: [
+            "/xquis1.png", "/xquis2.png", "/xquis3.png", "/xquis4.png", "/xquis5.png", "/xquis6.png",
+        ]
+    },
+    {
+        id: 4,
+        name: "Linka",
+        description: "Linka is my first shot at trying out websockets/socket.io, still in its rough phase but at" +
+            " lease I have something to build on. It features real time end to end messaging and sending images," +
+            " profile image upload, online indicator auth...",
+        link: "https://chatapp-84n6.onrender.com/",
+        img: [
+            "/chat1.png", "/chat2.png", "/chat3.png", "/chat4.png", "/chat5.png",
+        ]
+    },
+    {
+        id: 5,
+        name: "Xpay",
+        description: "Xpay is an E-commerce website, my very first big demo project. It helped me sharpen my skills in building scalable, user-friendly shopping experiences. It features a theme toggle, a modal showing product details, a cart page, a different page" +
+            " routes ...  ",
+        link: "https://xpay-1ug.pages.dev/",
+        img: [
+            "/xpay1.png", "/xpay2.png", "/xpay3.png", "/xpay4.png", "/xpay5.png",
+        ]
+    },
+]
