@@ -76,3 +76,32 @@ export const ServicesData = [
         ],
     },
 ]
+
+export const testimonials = [
+    {
+        quote:
+            "His growth has been remarkably sharp, fast, and focused. He has a strong grasp of modern development" +
+            " practices, and I’d be excited to collaborate with him on deployment and CI/CD processes.",
+        name: "Olayinka Olasimbo",
+        title: "Senior DevOps Engineer at Citi-Bank",
+    },
+    {
+        quote:
+            "Building Orvyn Media was seamless, he made communication smooth, transparent, and efficient. His" +
+            " professionalism and creativity are why we retained him as our contract web developer",
+        name: "Mr Dami",
+        title: "Founder Orvyn Media",
+    },
+    {
+        quote:
+            "His intuitive frontend logic and eye for detail made our project seamless. Working with him is inspiring, and I look forward to building more products together.",
+        name: "Chidera Obinna",
+        title: "Full Stack Developer at DevFolio",
+    },
+    {
+        quote:
+            "I came across his gym landing page and was immediately impressed. The visual storytelling, fluid design, and responsiveness felt premium. After reviewing the code, I knew I had to reach out.",
+        name: "Daniel Ogunleye",
+        title: "Backend Developer at CoreStack Systems",
+    }
+];

@@ -17,7 +17,9 @@ const Hero = () => {
 
 
     return (
-        <div className="h-[40rem] relative w-full bg-white dark:bg-black flex flex-col overflow-hidden">
+        <div
+            id="hero"
+            className="h-[40rem] relative w-full bg-white dark:bg-black flex flex-col overflow-hidden">
             <div className="w-full absolute inset-0 h-screen">
                 <SparklesCore
                     id="tsparticlesfullpage"

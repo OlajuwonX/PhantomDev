@@ -3,7 +3,9 @@ import {ServicesData} from "../data/data";
 
 const Faq = () => {
     return (
-        <div className="py-7 px-8 lg:py-9 lg:px-12 bg-white dark:bg-black">
+        <div id="my-services"
+             className="py-7 px-8 lg:py-9 lg:px-12 bg-white dark:bg-black"
+        >
             <p className="text-2xl lg:text-3xl font-semibold md:font-bold lg:font-bold">My Services</p>
             <Accordion
                 type="single"

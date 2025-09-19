@@ -24,7 +24,9 @@ const TechStack = () => {
     ];
 
     return (
-        <div className="p-3 bg-white dark:bg-black">
+        <div
+            id="tech-stack"
+            className="p-3 bg-white dark:bg-black">
             <ScrollVelocity
                 texts={[Languages.join(" • "), Frameworks.join(" • ")].flat()}
                 velocity={80}
