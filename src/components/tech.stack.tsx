@@ -1,7 +1,5 @@
 import {ScrollVelocity} from './ui/ScrollVelocity'
 
-
-
 const TechStack = () => {
     const Languages = [
         "React",
@@ -9,21 +7,27 @@ const TechStack = () => {
         "Tailwind CSS",
         "JavaScript",
         "HTML/CSS",
+        ""
     ];
 
     const Frameworks = [
-        "Acertinity UI",
+        "Acertinity.UI",
         "ShadCN",
         "Daisy UI",
         "React",
         "Next.js",
+        "ExpressJs",
+        "Node.js",
+        "React.Bits",
+        "PayloadCMS",
+        "",
     ];
 
     return (
-        <div>
+        <div className="p-3 bg-white dark:bg-black">
             <ScrollVelocity
-                texts={[Languages, Frameworks]}
-                velocity={100}
+                texts={[Languages.join(" • "), Frameworks.join(" • ")].flat()}
+                velocity={80}
                 className="custom-scroll-text"
             />
         </div>
