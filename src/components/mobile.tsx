@@ -11,7 +11,7 @@ const Mobile = () => {
     const location = useLocation();
 
     return (
-        <nav className="flex flex-row justify-between w-[100%] px-4 py-3 relative z-10 bg-white dark:bg-black shadow-sm">
+        <nav className="flex flex-row sticky top-0 justify-between w-[100%] px-4 py-3 z-50 bg-white dark:bg-black">
             {/* Logo + Title */}
             <div className="flex items-center">
                 <img src="/pdlogo1.png" alt="NavLogo" className="h-10 w-11" />

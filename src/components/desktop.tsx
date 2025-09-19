@@ -5,7 +5,7 @@ import ToggleTheme from "./ui/toggle.theme";
 const Desktop = () => {
     const location = useLocation();
     return (
-        <nav className="flex flex-row items-center justify-between w-full px-5 py-2 bg-white dark:bg-black text-black dark:text-white">
+        <nav className="flex flex-row items-center justify-between border-none w-full px-5 py-2 bg-white dark:bg-black text-black dark:text-white">
             <div className="flex flex-row">
                 <img src="/pdlogo1.png" alt="NavLogo" className="h-13 w-14"  />
             </div>
