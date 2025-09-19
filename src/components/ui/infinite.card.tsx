@@ -96,7 +96,7 @@ export const InfiniteMovingCards = ({
                 pauseOnHover && "hover:[animation-play-state:paused]",
             )}
                 style={{
-                    animation: start ? `scroll var(--animation-duration, 40s) linear infinite` : 'none',
+                    animation: start ? `scroll var(--animation-duration, 80s) linear infinite` : 'none',
                     animationDirection: 'var(--animation-direction, forwards)',
                 }}
             >

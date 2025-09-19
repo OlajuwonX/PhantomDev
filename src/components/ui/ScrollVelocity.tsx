@@ -64,7 +64,7 @@ function useElementWidth<T extends HTMLElement>(ref: React.RefObject<T | null>):
 export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
                                                                   scrollContainerRef,
                                                                   texts = [],
-                                                                  velocity = 100,
+                                                                  velocity = 80,
                                                                   className = '',
                                                                   damping = 50,
                                                                   stiffness = 400,
@@ -144,7 +144,7 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
         return (
             <div className={`${parallaxClassName} relative overflow-hidden`} style={parallaxStyle}>
                 <motion.div
-                    className={`${scrollerClassName} flex whitespace-nowrap text-center font-sans text-xl md:text-3xl lg:text-3xl font-bold tracking-[-0.02em] drop-shadow md:leading-[3rem]`}
+                    className={`${scrollerClassName} flex whitespace-nowrap text-center font-sans text-xl md:text-3xl lg:text-3xl font-bold tracking-[-0.02em] md:leading-[5rem]`}
                     style={{ x, ...scrollerStyle }}
                 >
                     {spans}

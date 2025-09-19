@@ -26,10 +26,10 @@ const TechStack = () => {
     return (
         <div
             id="tech-stack"
-            className="p-3 bg-white dark:bg-black">
+            className="py-8 bg-white dark:bg-black">
             <ScrollVelocity
                 texts={[Languages.join(" • "), Frameworks.join(" • ")].flat()}
-                velocity={80}
+                velocity={60}
                 className="custom-scroll-text"
             />
         </div>
