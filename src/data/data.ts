@@ -136,9 +136,11 @@ export const ProjectData = [
     {
         id: 2,
         name: "Orvyn Media",
-        description: "Orvyn Media — a sleek portfolio website built for social media managers. It includes multiple" +
-            " pages to showcase services and pricing, Clean + modern UI design, Contact page that collects" +
-            " and organizes client inquire",
+        description: "I built Orvyn Media (a sleek portfolio website) for a client who is a social media manager. It" +
+            " features" +
+            " multiple" +
+            " pages to showcase services and pricing, Clean + modern UI design, Contact page that collects client" +
+            " inquiries",
         link: "https://www.orvynmedia.com/",
         img: [
             "/orvyn1.png", "/orvyn2.png", "/orvyn3.png", "/orvyn4.png",

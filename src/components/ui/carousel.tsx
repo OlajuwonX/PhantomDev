@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import type { JSX } from 'react';
 import { ExternalLink } from 'lucide-react';
+import ScrollReveal from "./scrollreveal";
 
 export interface ProjectItem {
     id: number;
@@ -76,75 +77,78 @@ export default function ProjectGrid({
     };
 
     return (
-        <div className={`w-full px-5 py-8 md:py-10 md:px-15 lg:py-10 lg:px-15 ${className}`}>
+        <div className={`w-full ${className}`}>
             <div className={getGridClasses()}>
                 {projects.map((project, index) => {
                     const currentImageIndex = currentImageIndexes[index] || 0;
-
                     return (
-                        <div
-                            key={project.id}
-                            className="w-[350px] border bg-white dark:bg-black rounded-lg overflow-hidden shadow-xs shadow-teal-300 hover:shadow-lg transition-shadow duration-300"
-                            onMouseEnter={() => handleCardHover(index, true)}
-                            onMouseLeave={() => handleCardHover(index, false)}
-                        >
-                            {/* Image Section */}
-                            <div className="relative h-38 w-[350px] overflow-hidden ">
-                                <motion.img
-                                    key={`${project.id}-${currentImageIndex}`}
-                                    src={project.img[currentImageIndex]}
-                                    alt={`${project.name} - Image ${currentImageIndex + 1}`}
-                                    className="w-[350px] h-full object-cover"
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ duration: 0.5 }}
-                                    onError={(e) => {
-                                        const target = e.target as HTMLImageElement;
-                                        target.src = '/placeholder-project.png';
-                                    }}
-                                />
+                        <ScrollReveal delay={0.1 * project.id + 0.2}>
+                            <div
+                                key={project.id}
+                                className="w-[350px] border bg-white dark:bg-black rounded-lg overflow-hidden shadow-xs shadow-teal-300 hover:shadow-lg transition-shadow duration-300"
+                                onMouseEnter={() => handleCardHover(index, true)}
+                                onMouseLeave={() => handleCardHover(index, false)}
+                            >
+                                {/* Image Section */}
+                                <div className="relative h-45 w-[350px] overflow-hidden">
+                                    <motion.img
+                                        key={`${project.id}-${currentImageIndex}`}
+                                        src={project.img[currentImageIndex]}
+                                        alt={`${project.name} - Image ${currentImageIndex + 1}`}
+                                        className="w-[350px] h-full object-cover"
+                                        loading="lazy"
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        transition={{ duration: 0.5 }}
+                                        onError={(e) => {
+                                            const target = e.target as HTMLImageElement;
+                                            target.src = '/placeholder-project.png';
+                                        }}
+                                    />
 
-                                {/* Image indicators */}
-                                {project.img.length > 1 && (
-                                    <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
-                                        {project.img.map((_, imgIndex) => (
-                                            <div
-                                                key={imgIndex}
-                                                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                                                    imgIndex === currentImageIndex
-                                                        ? 'bg-white scale-110'
-                                                        : 'bg-white/50'
-                                                }`}
-                                            />
-                                        ))}
-                                    </div>
-                                )}
+                                    {/* Image indicators */}
+                                    {project.img.length > 1 && (
+                                        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                                            {project.img.map((_, imgIndex) => (
+                                                <div
+                                                    key={imgIndex}
+                                                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                                                        imgIndex === currentImageIndex
+                                                            ? 'bg-white scale-110'
+                                                            : 'bg-white/50'
+                                                    }`}
+                                                />
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+
+                                {/* Content Section */}
+                                <div className="p-4 w-full">
+                                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                                        {project.name}
+                                    </h3>
+
+                                    <p className="text-gray-600 dark:text-gray-300 text-[16px] mb-4">
+                                        {project.description}
+                                    </p>
+
+                                    {/* Button */}
+                                    {showButton && (
+                                        <a
+                                            href={project.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 hover:scale-110 text-gray-200 px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium"
+                                        >
+                                            {buttonText}
+                                            <ExternalLink size={16} />
+                                        </a>
+                                    )}
+                                </div>
                             </div>
+                        </ScrollReveal>
 
-                            {/* Content Section */}
-                            <div className="p-4 w-full">
-                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                                    {project.name}
-                                </h3>
-
-                                <p className="text-gray-600 dark:text-gray-300 text-[16px] mb-4">
-                                    {project.description}
-                                </p>
-
-                                {/* Button */}
-                                {showButton && (
-                                    <a
-                                        href={project.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 hover:scale-110 text-gray-200 px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium"
-                                    >
-                                        {buttonText}
-                                        <ExternalLink size={16} />
-                                    </a>
-                                )}
-                            </div>
-                        </div>
                     );
                 })}
             </div>
