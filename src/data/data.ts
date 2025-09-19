@@ -105,3 +105,18 @@ export const testimonials = [
         title: "Backend Developer at CoreStack Systems",
     }
 ];
+
+export const AboutData = [
+    {id: 1,
+    details: "I’m Olajuwon, a software developer with 3+ years of building everything from sleek landing pages to" +
+        " functional e-commerce platforms. Coding is where I feel at home. I enjoy creating smooth user interfaces, connecting APIs, and making sure products don’t just exist but actually work well for people."
+    },
+    {id: 2,
+        details: "My background in Quantity Surveying shaped the way I work, it taught me discipline, attention to" +
+            " detail, and the importance of seeing every project from start to finish. I learned to approach problems with structure, to think in terms of both the small details and the bigger picture, and to stay focused on delivering results that actually work in practice. These lessons have carried over into my journey as a developer, where I apply the same mindset to writing clean code, designing user-friendly interfaces, and building products that people can trust."
+    },
+    {id: 3,
+        details: "I’m always curious to learn new tools and technologies, and I enjoy working with people who share" +
+            " the same excitement for building things. I believe the best work happens when ideas are shared and turned into something real. Weakness? I can be a perfectionist with design details, if something feels off, I’ll keep at it until it’s right. The good side of that is I rarely put out unfinished work."
+    },
+]

@@ -4,7 +4,7 @@ import {ServicesData} from "../data/data";
 const Faq = () => {
     return (
         <div id="my-services"
-             className="py-7 px-5 lg:py-9 lg:px-12 bg-white dark:bg-black"
+             className="py-8 px-5 lg:py-10 lg:px-12 bg-white dark:bg-black"
         >
             <p className="text-2xl lg:text-3xl font-semibold md:font-bold lg:font-bold">My Services</p>
             <Accordion

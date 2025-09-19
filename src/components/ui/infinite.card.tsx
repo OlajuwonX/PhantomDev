@@ -5,7 +5,7 @@ import {useEffect, useState, useCallback, useRef} from "react";
 export const InfiniteMovingCards = ({
                                         items,
                                         direction = "left",
-                                        speed = "fast",
+                                        speed = "slow",
                                         pauseOnHover = true,
                                         className,
                                     }: {
