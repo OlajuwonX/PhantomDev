@@ -9,7 +9,7 @@ const Desktop = () => {
             <div className="flex flex-row">
                 <img src="/pdlogo1.png" alt="NavLogo" className="h-13 w-14"  />
             </div>
-            <ul className="flex justify-center items-center list-none gap-8 uppercase">
+            <ul className="flex justify-center items-center list-none gap-8 uppercase mt-1 text-[17.5px]">
                 {NavData.map(({id, name, path}) => (
                     <li key={id}
                         className={`transition-all duration-100 ease-in-out hover:scale-105 cursor-pointer font-semibold ${

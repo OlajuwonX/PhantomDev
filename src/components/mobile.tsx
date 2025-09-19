@@ -25,9 +25,9 @@ const Mobile = () => {
                     className="p-2 rounded-md text-black hover:scale-110 dark:text-white hover:bg-green-50 dark:hover:bg-gray-800 transition cursor-pointer"
                 >
                     {open ? (
-                        <X size={24} strokeWidth={2.5} />
+                        <X size={25} strokeWidth={2.5} />
                     ) : (
-                        <Menu size={21} strokeWidth={2.5} />
+                        <Menu size={24} strokeWidth={2.5} />
                     )}
                 </button>
 

@@ -167,10 +167,10 @@ const TextType = ({
         Component,
         {
             ref: containerRef,
-            className: `inline-block text-2xl md:text-2xl lg:text-3xl font-semibold whitespace-pre-wrap tracking-tight ${className}`,
+            className: `inline-block h-[95px] lg:h-[60px] text-2xl md:text-2xl lg:text-3xl font-semibold whitespace-pre-wrap tracking-tight ${className}`,
             ...props
         },
-        <span className="inline text-2xl md:text-2xl lg:text-3xl font-semibold" >
+        <span className="inline text-2xl md:text-2xl lg:text-3xl font-semibold " >
       {displayedText}
     </span>,
         showCursor && (
