@@ -14,18 +14,18 @@ const Faq = () => {
             >
                 {ServicesData.map(({id, name, description, listHeader, list}) => (
                 <AccordionItem value={String(id)}>
-                            <AccordionTrigger className="text-xl border-b-1">{name}</AccordionTrigger>
+                            <AccordionTrigger className="text-[16px] border-b-1">{name}</AccordionTrigger>
                             <AccordionContent className="flex flex-col gap-2 mt-[4px]">
-                                <p className="text-sm md:text-[16px] lg:text-[17px]">
+                                <p className="text-[14px] md:text-[16px] lg:text-[17px]">
                                     {description}
                                 </p>
-                                <h3 className="text-sm md:text-[16px] lg:text-[17px] font-semibold">
+                                <h3 className="text-[14px] md:text-[16px] lg:text-[17px] font-semibold">
                                     {listHeader}
                                 </h3>
                                 <ul className="list-item">
                                 {list.map((item, index) =>(
                                     <li key={index}
-                                    className="pb-[5px] list-item text-sm md:text-[16px] lg:text-[17px]"
+                                    className="pb-[5px] list-item text-[14px] md:text-[16px] lg:text-[17px]"
                                     >{item}</li>
                                 ))}
                                 </ul>

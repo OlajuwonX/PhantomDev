@@ -8,7 +8,7 @@ const About = () => {
             {AboutData.map(({id, details}) => (
                 <ScrollReveal delay={0.1 * id + 1}>
                     <p key={id}
-                       className="text-xl lg:text-[18px] tracking-[1px] pb-3 leading-6 md: w-[70%] lg:w-[70%]">
+                       className="text-[14px] lg:text-[18px] tracking-[1px] pb-3 leading-6 w-full md:w-[70%] lg:w-[70%]">
                         {details}
                     </p>
                 </ScrollReveal>
