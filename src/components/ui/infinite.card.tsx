@@ -46,7 +46,7 @@ export const InfiniteMovingCards = ({
                     duration = "80s";
                     break;
                 default:
-                    duration = "40s";
+                    duration = "80s";
             }
             containerRef.current.style.setProperty("--animation-duration", duration);
         }
