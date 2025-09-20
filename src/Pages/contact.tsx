@@ -33,11 +33,11 @@ const Contact = () => {
                 window.location.href = "/thank-you";
             } else {
                 console.error('Server responded with error:', res.status);
-                setFormMessage("❌ Failed to send message. Please try again.");
+                setFormMessage("❌ Failed to send message.");
             }
         } catch (error) {
             console.error('Network error during form submission:', error);
-            setFormMessage("🚨 Error sending message. Please check your connection and try again.");
+            setFormMessage("🚨 Error sending message.");
         } finally {
             setIsSubmitting(false);
         }
@@ -49,71 +49,83 @@ const Contact = () => {
                 <h1 className="uppercase font-semibold md:font-bold lg:font-bold text-center text-2xl md:text-3xl lg:text-3xl -tracking-tight">Contact Me</h1>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
-                <p className="text-center text-xl md:text-2xl lg:text-2xl md:px-20 lg:px-25 mb-5">Kindly fill in the form below, your response will be forwarded directly to my email, I'd love to hear from you.</p>
+                <p className="text-center text-[15px] md:text-xl lg:text-xl md:px-20 lg:px-25 mb-5">Kindly fill in the form below, your response will be forwarded directly to my email, I'd love to hear from you.</p>
             </ScrollReveal>
-
-            <form
-                onSubmit={handleSubmit}
-                className="flex flex-col gap-3 md:gap-5 lg:gap-8 w-full md:px-25 lg:px-50">
-                <div className="flex flex-col md:flex-row lg:flex-row gap-[3px] md:gap-3 lg:gap-3">
-                    <label className="px-2 text-[15px] md:text-2xl lg:text-2xl item-start">NAME</label>
-                    <input
-                        className="border border-teal-600 rounded-sm px-2 py-[3px] outline-none hover:border-yellow-200 w-full"
-                        placeholder="Phantom Dev"
-                        type="text"
-                        name="name"
-                        required
-                    />
-                </div>
-                <div className="flex flex-col md:flex-row lg:flex-row gap-[3px] md:gap-3 lg:gap-3">
-                    <label className="px-2 text-[15px] md:text-xl lg:text-xl item-start uppercase">Phone</label>
-                    <input
-                        className="border border-teal-600 rounded-sm px-2 py-[3px] outline-none hover:border-yellow-200 w-full"
-                        placeholder="+1-234-5678-910"
-                        type="phone"
-                        name="phone"
-                        required
-                    />
-                </div>
-                <div className="flex flex-col md:flex-row lg:flex-row gap-[3px] md:gap-3 lg:gap-3">
-                    <label className="px-2 text-[15px] md:text-xl lg:text-xl item-start uppercase">Email</label>
-                    <input
-                        className="border border-teal-600 rounded-sm px-2 py-[3px] outline-none hover:border-yellow-200 w-full"
-                        placeholder="phantomdev@gmail.com"
-                        type="email"
-                        name="email"
-                        required />
-                </div>
-                <div className="flex flex-col gap-[3px] md:gap-2 lg:gap-2 mt-5 md:mt-8 lg:mt-8">
-                    <label className="px-2 text-[15px] md:text-xl lg:text-xl item-start uppercase">Message</label>
-                    <textarea
-                        className="border border-teal-600 rounded-sm px-2 py-[3px] outline-none hover:border-yellow-200 w-full h-[150px] md:h-[200px] lg:h-[200px]"
-                        placeholder="type a message here..."
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                        name="message"
-                        required
-                    />
-                </div>
-                <div className="flex item-center justify-center mt-4">
-                    <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="px-8 py-2 rounded-lg text-[15px] md:text-xl lg:text-xl bg-green-700 font-semibold hover:bg-green-600 cursor-pointer transition-all"
+<ScrollReveal delay={0.3}>
+    <form
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-3 md:gap-5 lg:gap-8 w-full md:px-25 lg:px-50">
+        <ScrollReveal delay={0.4}>
+            <div className="flex flex-col md:flex-row lg:flex-row gap-[3px] md:gap-3 lg:gap-3">
+                <label className="px-2 text-[15px] md:text-xl lg:text-xl item-start">NAME</label>
+                <input
+                    className="border border-teal-600 rounded-sm px-2 py-[3px] outline-none focus:border-yellow-200 w-full"
+                    placeholder="Phantom Dev"
+                    type="text"
+                    name="name"
+                    required
+                />
+            </div>
+        </ScrollReveal>
+        <ScrollReveal delay={0.5}>
+            <div className="flex flex-col md:flex-row lg:flex-row gap-[3px] md:gap-3 lg:gap-3">
+                <label className="px-2 text-[15px] md:text-xl lg:text-xl item-start uppercase">Phone</label>
+                <input
+                    className="border border-teal-600 rounded-sm px-2 py-[3px] outline-none focus:border-yellow-200 w-full"
+                    placeholder="+1-234-5678-910"
+                    type="phone"
+                    name="phone"
+                    required
+                />
+            </div>
+        </ScrollReveal>
+        <ScrollReveal delay={0.6}>
+            <div className="flex flex-col md:flex-row lg:flex-row gap-[3px] md:gap-3 lg:gap-3">
+                <label className="px-2 text-[15px] md:text-xl lg:text-xl item-start uppercase">Email</label>
+                <input
+                    className="bg-inherit border border-teal-600 rounded-sm px-2 py-[3px] outline-none focus:border-yellow-200 w-full"
+                    placeholder="phantomdev@gmail.com"
+                    type="email"
+                    name="email"
+                    required />
+            </div>
+        </ScrollReveal>
+        <ScrollReveal delay={0.7}>
+            <div className="flex flex-col gap-[3px] md:gap-2 lg:gap-2 mt-5 md:mt-8 lg:mt-8">
+                <label className="px-2 text-[15px] md:text-xl lg:text-xl item-start uppercase">Message</label>
+                <textarea
+                    className="bg-inherit border border-teal-600 rounded-sm px-2 py-[3px] outline-none focus:border-yellow-200 w-full h-[150px] md:h-[200px] lg:h-[200px]"
+                    placeholder="type a message here..."
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    name="message"
+                    required
+                />
+            </div>
+        </ScrollReveal>
+        <ScrollReveal delay={0.8}>
+            <div className="flex flex-col item-center justify-center mt-4">
+                <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="px-8 py-2 rounded-lg text-[15px] md:text-xl lg:text-xl bg-teal-700 font-semibold hover:bg-teal-600 cursor-pointer transition-all"
+                >
+                    {isSubmitting ? "Sending..." : "Submit"}
+                </button>
+                {formMessage && (
+                    <p
+                        className={`text-center mt-4 ${
+                            formMessage.includes("✅") ? "success" : "error"
+                        }`}
                     >
-                        {isSubmitting ? "Sending..." : "Submit"}
-                    </button>
-                    {formMessage && (
-                        <p
-                            className={`FormMessage ${
-                                formMessage.includes("✅") ? "success" : "error"
-                            }`}
-                        >
-                            {formMessage}
-                        </p>
-                    )}
-                </div>
-            </form>
+                        {formMessage}
+                    </p>
+                )}
+            </div>
+        </ScrollReveal>
+    </form>
+</ScrollReveal>
+
         </div>
     )
 }

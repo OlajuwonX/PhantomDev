@@ -53,7 +53,7 @@ const Hero = () => {
                     />
                     <NigeriaClock />
                     <DownloadCVButton fileUrl="/OlajuwonCV.pdf" fileName="Phantom-Dev.pdf"/>
-                    <button className="px-5 py-2 rounded-xl bg-green-700 font-semibold hover:bg-green-600 cursor-pointer transition-all z-10"
+                    <button className="px-8 py-2 rounded-xl bg-teal-700 font-semibold hover:bg-teal-600 cursor-pointer transition-all z-10"
                             onClick={() => navigate("/project")}
                     >
                         ➡️ My Projects

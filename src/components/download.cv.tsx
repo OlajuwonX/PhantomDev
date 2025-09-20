@@ -17,7 +17,7 @@ const DownloadCVButton: React.FC<DownloadCVButtonProps> = ({ fileUrl, fileName =
     return (
         <button
             onClick={handleDownload}
-            className="px-5 py-2 rounded-xl mt-5 bg-green-700 font-semibold hover:bg-green-600 cursor-pointer transition-all z-10"
+            className="px-8 py-2 rounded-xl mt-5 bg-teal-700 font-semibold hover:bg-teal-600 cursor-pointer transition-all z-10"
         >
             📄 Download CV
         </button>
