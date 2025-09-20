@@ -1,10 +1,13 @@
 import ScrollReveal from "../components/ui/scrollreveal";
+import animationData from "../data/confetti.json";
+import Lottie from "lottie-react";
 import {useState} from "react";
 
 const Contact = () => {
     const [description, setDescription] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [formMessage, setFormMessage] = useState("");
+    const [isAnimating, setIsAnimating] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -73,7 +76,7 @@ const Contact = () => {
                 <input
                     className="border border-teal-600 rounded-sm px-2 py-[3px] outline-none focus:border-yellow-200 w-full"
                     placeholder="+1-234-5678-910"
-                    type="phone"
+                    type="tel"
                     name="phone"
                     required
                 />
@@ -103,11 +106,27 @@ const Contact = () => {
                 />
             </div>
         </ScrollReveal>
+
         <ScrollReveal delay={0.8}>
+            {isAnimating && (
+                <div className="absolute -bottom-5 right-0 z-0 pointer-events-none">
+                    <Lottie
+                        animationData={animationData}
+                        loop={false}
+                        autoplay
+                        style={{ width: 900, height: 400 }}
+                    />
+                </div>
+            )}
+
             <div className="flex flex-col item-center justify-center mt-4">
                 <button
                     type="submit"
                     disabled={isSubmitting}
+                    onClick={() => {
+                        setIsAnimating(true);
+                        setTimeout(() => setIsAnimating(false), 3000);
+                    }}
                     className="px-8 py-2 rounded-lg text-[15px] md:text-xl lg:text-xl bg-teal-700 font-semibold hover:bg-teal-600 cursor-pointer transition-all"
                 >
                     {isSubmitting ? "Sending..." : "Submit"}
@@ -115,7 +134,7 @@ const Contact = () => {
                 {formMessage && (
                     <p
                         className={`text-center mt-4 ${
-                            formMessage.includes("✅") ? "success" : "error"
+                            formMessage.includes("✅") ? "text-teal-800" : "text-red-600"
                         }`}
                     >
                         {formMessage}
