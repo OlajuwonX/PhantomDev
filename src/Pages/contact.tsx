@@ -23,20 +23,32 @@ const Contact = () => {
         };
 
         console.log('Submitting form data:', { ...formData, description: '[REDACTED]' }); // Log without exposing message content
-
         try {
+            console.log('Making API request to /api/send-email...');
             const res = await fetch("/api/send-email", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
             });
+            console.log('Response status:', res.status);
+            console.log('Response ok:', res.ok);
+            const responseData = await res.json();
+            console.log('Response data:', responseData);
 
             if (res.ok) {
-                console.log('Form submitted successfully');
-                window.location.href = "/thank-you";
+                console.log('Form submitted successfully - triggering animation');
+                setDescription("");
+                (form as HTMLFormElement).reset();
+                setFormMessage("✅ Message sent successfully!");
+                setIsAnimating(true);
+                console.log('isAnimating set to true');
+                setTimeout(() => {
+                    setIsAnimating(false);
+                    console.log('Animation ended');
+                }, 3000);
             } else {
-                console.error('Server responded with error:', res.status);
-                setFormMessage("❌ Failed to send message.");
+                console.error('Server responded with error:', res.status, responseData);
+                setFormMessage(`❌ Failed to send message: ${responseData.error || 'Unknown error'}`);
             }
         } catch (error) {
             console.error('Network error during form submission:', error);
@@ -54,6 +66,24 @@ const Contact = () => {
             <ScrollReveal delay={0.2}>
                 <p className="text-center text-[15px] md:text-xl lg:text-xl md:px-20 lg:px-25 mb-5">Kindly fill in the form below, your response will be forwarded directly to my email, I'd love to hear from you.</p>
             </ScrollReveal>
+
+            {isAnimating && (
+                <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
+                    <Lottie
+                        animationData={animationData}
+                        loop={false}
+                        autoplay={true}
+                        style={{ width: 400, height: 300 }} // Reduced size for better mobile display
+                        onComplete={() => {
+                            console.log('Lottie animation completed');
+                            setIsAnimating(false);
+                        }}
+                        onLoopComplete={() => console.log('Lottie loop completed')}
+                        onEnterFrame={() => console.log('Lottie frame rendered')}
+                    />
+                </div>
+            )}
+
 <ScrollReveal delay={0.3}>
     <form
         onSubmit={handleSubmit}
@@ -106,30 +136,25 @@ const Contact = () => {
                 />
             </div>
         </ScrollReveal>
-
         <ScrollReveal delay={0.8}>
-            {isAnimating && (
-                <div className="absolute -bottom-5 right-0 z-0 pointer-events-none">
-                    <Lottie
-                        animationData={animationData}
-                        loop={false}
-                        autoplay
-                        style={{ width: 900, height: 400 }}
-                    />
-                </div>
-            )}
-
             <div className="flex flex-col item-center justify-center mt-4">
                 <button
                     type="submit"
                     disabled={isSubmitting}
-                    onClick={() => {
-                        setIsAnimating(true);
-                        setTimeout(() => setIsAnimating(false), 3000);
-                    }}
                     className="px-8 py-2 rounded-lg text-[15px] md:text-xl lg:text-xl bg-teal-700 font-semibold hover:bg-teal-600 cursor-pointer transition-all"
                 >
                     {isSubmitting ? "Sending..." : "Submit"}
+                </button>
+                <button
+                    type="button"
+                    onClick={() => {
+                        console.log('Test animation button clicked');
+                        setIsAnimating(true);
+                        setTimeout(() => setIsAnimating(false), 3000);
+                    }}
+                    className="px-4 py-2 bg-red-500 text-white rounded mt-2 text-sm"
+                >
+                    Test Animation (Remove After Testing)
                 </button>
                 {formMessage && (
                     <p
@@ -144,7 +169,6 @@ const Contact = () => {
         </ScrollReveal>
     </form>
 </ScrollReveal>
-
         </div>
     )
 }
