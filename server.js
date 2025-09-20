@@ -1,23 +1,25 @@
-import { Resend } from 'resend';
+const express = require('express');
+const cors = require('cors');
+const { Resend } = require('resend');
+require('dotenv').config();
 
+const app = express();
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export default async function handler(req, res) {
-    // Enable CORS
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+// Vercel URL
+app.use(cors({
+    origin: ['http://localhost:5173', 'https://phantom-ten-sepia.vercel.app/'],
+    credentials: true
+}));
 
-    if (req.method === 'OPTIONS') {
-        return res.status(200).end();
-    }
+app.use(express.json());
 
-    if (req.method !== 'POST') {
-        return res.status(405).json({ error: 'Method not allowed' });
-    }
+app.post('/api/send-email', async (req, res) => {
+    console.log('API endpoint hit');
 
     try {
         const { name, email, phone, description } = req.body;
+        console.log('Received form data:', { name, email, phone, description: '[REDACTED]' });
 
         if (!name || !email || !description) {
             return res.status(400).json({
@@ -41,21 +43,34 @@ export default async function handler(req, res) {
         });
 
         if (error) {
+            console.error('Resend API error:', error);
             return res.status(400).json({
                 success: false,
-                error: error.message
+                error: error.message || 'Failed to send email'
             });
         }
 
+        console.log('Email sent successfully:', data);
         return res.status(200).json({
             success: true,
             message: "Email sent successfully"
         });
 
     } catch (error) {
+        console.error('API handler error:', error);
         return res.status(500).json({
             success: false,
-            error: error.message
+            error: error.message || 'Internal server error'
         });
     }
+});
+
+module.exports = app;
+
+// for local development
+if (require.main === module) {
+    const PORT = process.env.PORT || 3001;
+    app.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+    });
 }
