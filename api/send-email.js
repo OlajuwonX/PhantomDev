@@ -1,52 +1,61 @@
-import { Resend } from "resend";
+import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req, res) {
-    if (req.method !== "POST") {
-        return res.status(405).json({ message: "Method not allowed" });
+    // Enable CORS
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end();
     }
-    console.log('Received form data:', { name, email, phone, description: '[REDACTED]' });
+
+    if (req.method !== 'POST') {
+        return res.status(405).json({ error: 'Method not allowed' });
+    }
 
     try {
         const { name, email, phone, description } = req.body;
-        console.log('Received form data:', { name, email, phone, description: '[REDACTED]' });
+
         if (!name || !email || !description) {
-            console.error('Missing required fields:', { name: !!name, email: !!email, description: !!description });
             return res.status(400).json({
                 success: false,
                 error: "Name, email, and message are required fields"
             });
         }
-        const { error } = await resend.emails.send({
-            from: "Phantom Dev",
+
+        const { data, error } = await resend.emails.send({
+            from: "onboarding@resend.dev",
             to: "olasimboolajuwon@gmail.com",
-            subject: "New Collab Message!",
+            subject: "New Contact Form Message",
             html: `
-        <h2>New Inquiry from ${name}</h2>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Description:</strong> ${description}</p>
-      `,
+                <h2>New Contact Form Submission</h2>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+                <p><strong>Message:</strong></p>
+                <p>${description}</p>
+            `,
         });
+
         if (error) {
-            console.error('Resend API error:', error);
             return res.status(400).json({
                 success: false,
-                error: error.message || 'Failed to send email'
+                error: error.message
             });
         }
-        console.log('Email sent successfully to olasimboolajuwon@gmail.com');
+
         return res.status(200).json({
             success: true,
             message: "Email sent successfully"
         });
 
     } catch (error) {
-        console.error('API handler error:', error);
         return res.status(500).json({
             success: false,
-            error: error.message || 'Internal server error'
+            error: error.message
         });
     }
 }

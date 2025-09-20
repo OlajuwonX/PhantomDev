@@ -21,7 +21,6 @@ const Contact = () => {
             phone: (form.elements.namedItem('phone') as HTMLInputElement).value,
             description,
         };
-
         console.log('Submitting form data:', { ...formData, description: '[REDACTED]' }); // Log without exposing message content
         try {
             console.log('Making API request to /api/send-email...');
@@ -144,17 +143,6 @@ const Contact = () => {
                     className="px-8 py-2 rounded-lg text-[15px] md:text-xl lg:text-xl bg-teal-700 font-semibold hover:bg-teal-600 cursor-pointer transition-all"
                 >
                     {isSubmitting ? "Sending..." : "Submit"}
-                </button>
-                <button
-                    type="button"
-                    onClick={() => {
-                        console.log('Test animation button clicked');
-                        setIsAnimating(true);
-                        setTimeout(() => setIsAnimating(false), 3000);
-                    }}
-                    className="px-4 py-2 bg-red-500 text-white rounded mt-2 text-sm"
-                >
-                    Test Animation (Remove After Testing)
                 </button>
                 {formMessage && (
                     <p
