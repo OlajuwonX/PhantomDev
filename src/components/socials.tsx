@@ -4,7 +4,7 @@ import {FaGithub, FaInstagram, FaTiktok, FaTwitter} from "react-icons/fa6";
 const Socials = () => {
     return (
         <div className="flex flex-col justify-start gap-5">
-            <p className="text-xl font-semibold">Our Socials</p>
+            <p className="text-xl font-semibold">Let's Connect</p>
             <div className="flex flex-row items-center gap-3">
                 <a
                     className="size-9 transition-all hover:scale-105 hover:text-green-700 cursor-pointer"

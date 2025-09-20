@@ -4,7 +4,7 @@ import {ProjectData} from "../data/data";
 
 const Projects = () => {
     return (
-        <div className="container mx-auto px-5 py-8 md:py-10 md:px-6 lg:py-10 lg:px-15">
+        <div className="container mx-auto px-5 py-8 md:py-10 md:px-6 lg:py-10 lg:px-15 mb-8">
             <ScrollReveal delay={0.1}>
                 <h2 className="text-2xl md:text-3xl lg:text-3xl uppercase font-bold text-center mb-8">My Projects</h2>
             </ScrollReveal>
@@ -16,7 +16,7 @@ const Projects = () => {
             imageRevealDuration={3000}
             showButton={true}
             buttonText="View Project"
-            className="mb-8"
+            className="mb-8 cursor-pointer overflow-hidden"
         />
         </div>
 

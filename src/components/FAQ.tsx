@@ -5,13 +5,13 @@ import ScrollReveal from "./ui/scrollreveal";
 const Faq = () => {
     return (
         <div id="my-services"
-             className="py-10 px-5 lg:py-10 lg:px-12 bg-white dark:bg-black"
+             className="py-10 px-5 lg:py-10 lg:px-12 bg-white dark:bg-black "
         >
             <p className="text-2xl lg:text-3xl pb-5 font-semibold md:font-bold lg:font-bold uppercase">My Services</p>
             <Accordion
                 type="single"
                 collapsible
-                className="w-full md:w-[60%] lg:w-[80%]"
+                className="w-full md:w-[70%] lg:w-[70]"
             >
                 {ServicesData.map(({id, name, description, listHeader, list}) => (
                 <AccordionItem value={String(id)}>

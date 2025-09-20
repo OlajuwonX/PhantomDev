@@ -6,8 +6,7 @@ import ScrollReveal from "../components/ui/scrollreveal";
 
 const Home = () => {
     return (
-        <div>
-
+        <div className="mb-8">
             <Hero />
             <ScrollReveal delay={0.1}>
                 <TechStack />

@@ -9,7 +9,7 @@ import Footer from "./components/footer";
 
 const App = () => {
     return (
-        <div className="overflow-auto scroll-auto">
+        <div className="scroll-smooth">
             <Nav />
             <Routes>
                 <Route path="/" element={<Home />} />
