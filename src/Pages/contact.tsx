@@ -157,8 +157,6 @@ const Contact = () => {
         </ScrollReveal>
     </form>
 </ScrollReveal>
-
-
         </div>
     )
 }
