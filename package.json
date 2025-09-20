@@ -2,13 +2,10 @@
   "name": "phantomdev",
   "private": true,
   "version": "0.0.0",
-  "type": "commonjs",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "server": "nodemon --exec tsx server.js",
-    "server:prod": "tsx server.js",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -20,9 +17,6 @@
     "@tsparticles/slim": "^3.9.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "cors": "^2.8.5",
-    "dotenv": "^16.6.1",
-    "express": "^4.21.2",
     "gsap": "^3.13.0",
     "lucide-react": "^0.544.0",
     "motion": "^12.23.15",
