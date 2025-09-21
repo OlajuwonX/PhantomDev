@@ -8,7 +8,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Vercel URL
 app.use(cors({
-    origin: ['http://localhost:5173', 'https://phantom-ten-sepia.vercel.app/'],
+    origin: ['http://localhost:5173', 'https://phantom-ten-sepia.vercel.app'],
     credentials: true
 }));
 
