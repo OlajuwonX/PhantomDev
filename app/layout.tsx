@@ -18,12 +18,71 @@ const bodyFont = Work_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Portfolio",
-    template: "%s | Portfolio",
+    default: "Olajuwon Olasimbo — Frontend Software Engineer",
+    template: "%s | Olajuwon Olasimbo",
   },
   description:
-    "Frontend software engineer portfolio focused on production-minded web applications, Next.js products, and accessible responsive interfaces.",
-  metadataBase: new URL("https://example.com"),
+    "Frontend software engineer building production-minded web applications, full-stack Next.js products, and accessible responsive interfaces. 4+ years of experience with React, TypeScript, and cloud-native SaaS.",
+  keywords: [
+    "frontend engineer",
+    "software engineer",
+    "React developer",
+    "Next.js developer",
+    "TypeScript",
+    "web development",
+    "SaaS",
+    "product engineering",
+  ],
+  metadataBase: new URL("https://olajuwon.dev"),
+  alternates: {
+    canonical: "https://olajuwon.dev",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://olajuwon.dev",
+    siteName: "Olajuwon Olasimbo",
+    title: "Olajuwon Olasimbo — Frontend Software Engineer",
+    description:
+      "Frontend software engineer building production-minded web applications, full-stack Next.js products, and accessible responsive interfaces.",
+    images: [
+      {
+        url: "https://olajuwon.dev/pdlogo1.png",
+        width: 512,
+        height: 512,
+        alt: "Olajuwon Olasimbo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Olajuwon Olasimbo — Frontend Software Engineer",
+    description:
+      "Frontend software engineer building production-minded web applications, full-stack Next.js products, and accessible responsive interfaces.",
+    creator: "@PhantomXDev",
+    images: ["https://olajuwon.dev/pdlogo1.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
+  icons: {
+    icon: [
+      { url: "/pdlogo1.png", sizes: "any" },
+      { url: "/pdlogo1.png", sizes: "any", type: "image/png" },
+    ],
+    shortcut: "/pdlogo1.png",
+    apple: "/pdlogo1.png",
+  },
+  authors: [
+    {
+      name: "Olajuwon Olasimbo",
+      url: "https://olajuwon.dev",
+    },
+  ],
 };
 
 export default function RootLayout({
