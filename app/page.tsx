@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/hero";
 import { EngineeringProfile } from "@/components/sections/engineering-profile";
 import { Experience } from "@/components/sections/experience";
+import { SelectedProducts } from "@/components/sections/selected-products";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <EngineeringProfile />
       <Experience />
+      <SelectedProducts />
     </main>
   );
 }
