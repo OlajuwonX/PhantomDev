@@ -79,10 +79,49 @@ export const projects: Project[] = [
     featured: true,
     kind: "product",
   },
+  {
+    slug: "collagecollectives",
+    name: "CollageCollectives",
+    category: "Photography Portfolio",
+    summary: "Visual storytelling and photography portfolio with smooth animations.",
+    description:
+      "CollageCollectives is a high-performance photography portfolio emphasizing visual storytelling, responsive media handling, and smooth interaction design. Built to showcase photography while maintaining fast load times despite heavy image and video assets.",
+    status: "Live",
+    stack: ["Next.js", "GSAP", "Image optimization"],
+    highlights: [
+      "Visual storytelling and photography presentation",
+      "Smooth animations with GSAP and reduced-motion support",
+      "Optimized media delivery on all devices",
+    ],
+    featured: true,
+    kind: "interface",
+    liveUrl: "https://collage-collectives.vercel.app/",
+  },
+  {
+    slug: "investa",
+    name: "Investa",
+    category: "Investment Landing Page",
+    summary: "Clean, polished investment-themed landing page with strong hierarchy.",
+    description:
+      "Investa is a professional investment landing page demonstrating clean UI design, strong visual hierarchy, fast image loading, and responsive implementation. Showcases polished interaction design and investment-focused messaging.",
+    status: "Live",
+    stack: ["Next.js", "Tailwind CSS", "Image optimization"],
+    highlights: [
+      "Investment-focused visual hierarchy and messaging",
+      "Fast image loading and responsive media",
+      "Polished interface and interaction design",
+    ],
+    featured: true,
+    kind: "interface",
+    liveUrl: "https://investa.vercel.app/",
+  },
 ];
 
 export const getFeaturedProducts = () =>
   projects.filter((p) => p.featured && p.kind === "product");
+
+export const getFeaturedInterfaces = () =>
+  projects.filter((p) => p.featured && p.kind === "interface");
 
 export const getProjectBySlug = (slug: string) =>
   projects.find((p) => p.slug === slug);
