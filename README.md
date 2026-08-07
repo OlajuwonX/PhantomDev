@@ -1,69 +1,131 @@
-# React + TypeScript + Vite
+# Olajuwon Olasimbo — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A production-ready portfolio built with Next.js 15, showcasing frontend software engineering expertise through project case studies, experience highlights, and professional accomplishments.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Framework:** Next.js 15.5 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS 4
+- **Forms:** React Hook Form + Zod validation
+- **Email:** Resend API
+- **Icons:** Lucide React
+- **Package Manager:** npm
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Dynamic Case Studies:** 6 featured projects with full case study pages (`/work/[slug]`)
+- **Responsive Design:** Mobile-first, tested at 8 breakpoints (320px–1440px)
+- **SEO Optimized:** Metadata, sitemap, robots.txt, Open Graph, Twitter cards
+- **Accessibility:** WCAG compliance, keyboard navigation, screen reader support, reduced motion
+- **Contact Form:** Server-side validation, honeypot spam protection, Resend email integration
+- **Performance:** Server-rendered content, minimal client-side JavaScript, optimized images
+- **Type Safe:** Full TypeScript coverage with strict mode
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### Prerequisites
+- Node.js 18+
+- npm
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Installation
+
+```bash
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env.local
+# Edit .env.local with your values
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Environment Variables
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```env
+RESEND_API_KEY=your_resend_api_key_here
+CONTACT_EMAIL=your_destination_email@example.com
+NEXT_PUBLIC_SITE_URL=https://olajuwon.dev
 ```
+
+### Development
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view the site.
+
+### Build & Deploy
+
+```bash
+# Production build
+npm run build
+
+# Start production server
+npm start
+
+# Linting
+npm run lint
+```
+
+## Project Structure
+
+```
+app/
+├── layout.tsx              # Root layout with metadata
+├── page.tsx                # Homepage (all sections)
+├── globals.css             # Global styles and design tokens
+├── robots.ts               # SEO robots.txt
+├── sitemap.ts              # Dynamic sitemap generation
+├── not-found.tsx           # 404 page
+├── api/
+│   └── contact/
+│       └── route.ts        # Contact form API endpoint
+└── work/
+    └── [slug]/
+        └── page.tsx        # Dynamic case study pages
+
+components/
+├── layout/                 # Header, footer, navigation
+├── sections/              # Page sections (hero, about, etc)
+└── ui/                    # Reusable UI components
+
+content/                   # Project and experience data
+lib/                       # Utilities
+types/                     # TypeScript types
+public/                    # Static assets
+```
+
+## Content Structure
+
+### Projects
+
+Edit `content/projects.ts` and `content/projects-detailed.ts` to update projects. Add images to `public/images/projects/`.
+
+### Experience
+
+Edit `content/experience.ts` to update work history.
+
+### About & Engineering Profile
+
+Edit `content/about.ts` and `content/engineering-profile.ts`.
+
+## Deployment
+
+Deploy to Vercel:
+
+```bash
+vercel deploy
+```
+
+Set environment variables in your hosting platform.
+
+## License
+
+Personal portfolio — all rights reserved.
+
+## Contact
+
+- Email: olasimbo15@yahoo.com
+- GitHub: [OlajuwonX](https://github.com/OlajuwonX)
+- LinkedIn: [Olajuwon Olasimbo](https://www.linkedin.com/in/olasimbo-olajuwon-b986b7230/)
