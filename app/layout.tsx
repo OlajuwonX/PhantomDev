@@ -1,9 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Space_Grotesk, Work_Sans } from "next/font/google";
+import { Footer } from "@/components/layout/footer";
+import { Header } from "@/components/layout/header";
 import "./globals.css";
 
-const inter = Inter({
+const headingFont = Space_Grotesk({
   subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const bodyFont = Work_Sans({
+  subsets: ["latin"],
+  variable: "--font-copy",
   display: "swap",
 });
 
@@ -24,7 +33,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${headingFont.variable} ${bodyFont.variable} font-sans`}>
+        <a className="skip-link" href="#main-content">
+          Skip to content
+        </a>
+        <div className="page-shell">
+          <Header />
+          {children}
+          <Footer />
+        </div>
+      </body>
     </html>
   );
 }
