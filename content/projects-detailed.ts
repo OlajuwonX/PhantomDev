@@ -196,7 +196,13 @@ export const projectsDetailed: ProjectDetail[] = [
     ],
     featured: true,
     kind: "interface",
-    liveUrl: "https://collage-collectives.vercel.app/",
+    liveUrl: "https://collagecollectives.vercel.app/",
+    image: {
+      src: "/collagecollectives/collagecollectives-1.png",
+      alt: "CollageCollectives photography portfolio with visual storytelling design",
+      width: 1200,
+      height: 800,
+    },
     overview:
       "CollageCollectives demonstrates how to build a high-performance photography portfolio despite heavy media assets. The site showcases photography as a primary medium while maintaining fast load times and smooth interactions through careful optimization and animation.",
     problem:
@@ -230,7 +236,13 @@ export const projectsDetailed: ProjectDetail[] = [
     ],
     featured: true,
     kind: "interface",
-    liveUrl: "https://investa.vercel.app/",
+    liveUrl: "https://inve-sta.vercel.app/",
+    image: {
+      src: "/investa/Screenshot 2026-08-07 054825.png",
+      alt: "Investa investment landing page with professional design and hierarchy",
+      width: 1200,
+      height: 800,
+    },
     overview:
       "Investa demonstrates professional landing page design for the investment domain. Clear messaging hierarchy, high-quality images, and responsive layout guide visitors toward conversion while maintaining brand trust and credibility.",
     problem:

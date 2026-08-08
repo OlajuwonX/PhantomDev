@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionHeader } from "@/components/layout/section-header";
@@ -24,10 +25,14 @@ export function SelectedInterfaces() {
             >
               <div className="flex-shrink-0 md:w-1/2">
                 {project.image ? (
-                  <div className="aspect-video bg-[var(--surface-subtle)]">
-                    <p className="flex h-full items-center justify-center text-center text-sm text-[var(--muted-foreground)]">
-                      Image: {project.image.alt}
-                    </p>
+                  <div className="relative aspect-video overflow-hidden bg-[var(--surface-subtle)]">
+                    <Image
+                      src={project.image.src}
+                      alt={project.image.alt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
                   </div>
                 ) : (
                   <div className="aspect-video bg-[var(--surface-subtle)] flex items-center justify-center">
@@ -63,16 +68,11 @@ export function SelectedInterfaces() {
                   ))}
                 </div>
 
-                <div className="flex flex-col gap-3 sm:flex-row">
-                  {project.liveUrl && (
-                    <ButtonLink href={project.liveUrl}>
-                      Live site ↗
-                    </ButtonLink>
-                  )}
-                  <ButtonLink href={`/work/${project.slug}`} variant="secondary">
-                    View case study
+                {project.liveUrl && (
+                  <ButtonLink href={project.liveUrl}>
+                    Live site ↗
                   </ButtonLink>
-                </div>
+                )}
               </div>
             </article>
           ))}

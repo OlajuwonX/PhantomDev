@@ -35,8 +35,9 @@ export function Contact() {
         e.currentTarget.reset();
         setTimeout(() => setFormState("idle"), 5000);
       } else {
+        const data = await response.json();
         setFormState("error");
-        setFormMessage("Something went wrong. Please try again.");
+        setFormMessage(data.message || "Unable to send message. Please check your input and try again.");
       }
     } catch {
       setFormState("error");
@@ -119,7 +120,7 @@ export function Contact() {
             <button
               type="submit"
               disabled={formState === "loading"}
-              className="inline-flex min-h-[var(--button-height)] items-center justify-center border border-[var(--foreground)] bg-[var(--foreground)] px-5 text-sm font-bold uppercase tracking-[0.1em] text-[var(--background)] transition-colors disabled:opacity-50 hover:bg-transparent hover:text-[var(--foreground)]"
+              className="inline-flex min-h-[var(--button-height)] items-center justify-center border border-[var(--foreground)] bg-[var(--foreground)] px-5 text-sm font-bold uppercase tracking-[0.1em] text-white transition-colors disabled:opacity-50 hover:bg-transparent hover:text-[var(--foreground)]"
             >
               {formState === "loading" ? "Sending..." : "Send message"}
             </button>
@@ -127,7 +128,7 @@ export function Contact() {
             {formState === "success" && (
               <p
                 role="status"
-                className="text-sm text-[var(--accent)]"
+                className="text-sm font-medium text-[var(--accent)]"
               >
                 ✓ {formMessage}
               </p>
@@ -136,7 +137,7 @@ export function Contact() {
             {formState === "error" && (
               <p
                 role="alert"
-                className="text-sm text-red-600"
+                className="text-sm font-medium text-[var(--muted-foreground)]"
               >
                 ✗ {formMessage}
               </p>

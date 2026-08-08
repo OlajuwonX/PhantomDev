@@ -9,9 +9,9 @@ type ButtonLinkProps = ComponentPropsWithoutRef<typeof Link> & {
 
 const variants = {
   primary:
-    "border border-[var(--foreground)] bg-[var(--foreground)] text-[var(--background)] hover:bg-transparent hover:text-[var(--foreground)]",
+    "border border-[var(--foreground)] bg-[var(--foreground)] text-white hover:bg-transparent hover:text-[var(--foreground)]",
   secondary:
-    "border border-[var(--foreground)] text-[var(--foreground)] hover:bg-[var(--foreground)] hover:text-[var(--background)]",
+    "border border-[var(--foreground)] text-[var(--foreground)] hover:bg-[var(--foreground)] hover:text-white",
   text: "min-h-0 border-0 px-0 underline decoration-[var(--border)] hover:decoration-[var(--foreground)]",
 };
 

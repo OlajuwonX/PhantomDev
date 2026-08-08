@@ -95,7 +95,7 @@ export const projects: Project[] = [
     ],
     featured: true,
     kind: "interface",
-    liveUrl: "https://collage-collectives.vercel.app/",
+    liveUrl: "https://collagecollectives.vercel.app/",
   },
   {
     slug: "investa",
@@ -113,7 +113,7 @@ export const projects: Project[] = [
     ],
     featured: true,
     kind: "interface",
-    liveUrl: "https://investa.vercel.app/",
+    liveUrl: "https://inve-sta.vercel.app/",
   },
 ];
 

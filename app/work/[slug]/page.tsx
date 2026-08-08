@@ -1,10 +1,10 @@
-import { notFound } from "next/navigation";
-import type { Metadata } from "next";
 import { Container } from "@/components/layout/container";
 import { ButtonLink } from "@/components/ui/button-link";
 import { ExternalLink } from "@/components/ui/external-link";
-import { getProjectDetailBySlug } from "@/content/projects-detailed";
 import { getAllSlugs } from "@/content/projects";
+import { getProjectDetailBySlug } from "@/content/projects-detailed";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({
@@ -70,7 +70,7 @@ export default async function ProjectPage({
                 {project.status}
               </span>
             </div>
-            <h1 className="display-heading mb-4 font-heading font-semibold">
+            <h1 className="mb-4 font-heading text-4xl font-semibold md:text-5xl">
               {project.name}
             </h1>
             <p className="body-copy text-[var(--muted-foreground)]">
