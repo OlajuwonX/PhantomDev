@@ -1,13 +1,13 @@
 import { Container } from "@/components/layout/container";
 import { ButtonLink } from "@/components/ui/button-link";
 import { ExternalLink } from "@/components/ui/external-link";
-import { getAllSlugs } from "@/content/projects";
+import { getCaseStudySlugs } from "@/content/projects";
 import { getProjectDetailBySlug } from "@/content/projects-detailed";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({
+  return getCaseStudySlugs().map((slug) => ({
     slug,
   }));
 }
@@ -20,7 +20,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const project = getProjectDetailBySlug(slug);
 
-  if (!project) {
+  if (!project || project.kind !== "product") {
     return {};
   }
 
@@ -53,7 +53,7 @@ export default async function ProjectPage({
   const { slug } = await params;
   const project = getProjectDetailBySlug(slug);
 
-  if (!project) {
+  if (!project || project.kind !== "product") {
     notFound();
   }
 
@@ -61,8 +61,8 @@ export default async function ProjectPage({
     <main id="main-content" className="main-content">
       <article>
         <section className="bg-[var(--surface-subtle)] py-12 md:py-16">
-          <Container className="max-w-3xl">
-            <div className="mb-4 flex items-baseline gap-3">
+          <Container className="max-w-3xl overflow-hidden">
+            <div className="mb-4 flex flex-wrap items-baseline gap-3">
               <span className="text-sm font-bold uppercase tracking-[0.08em]">
                 {project.category}
               </span>
@@ -70,7 +70,7 @@ export default async function ProjectPage({
                 {project.status}
               </span>
             </div>
-            <h1 className="mb-4 font-heading text-4xl font-semibold md:text-5xl">
+            <h1 className="mb-4 max-w-full overflow-wrap-anywhere font-heading text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
               {project.name}
             </h1>
             <p className="body-copy text-[var(--muted-foreground)]">
@@ -80,7 +80,7 @@ export default async function ProjectPage({
         </section>
 
         <section className="py-12 md:py-16">
-          <Container className="max-w-3xl">
+          <Container className="max-w-3xl overflow-hidden">
             <div className="space-y-8">
               {project.overview && (
                 <div>
@@ -124,7 +124,7 @@ export default async function ProjectPage({
                     {project.keyWorkflows.map((workflow) => (
                       <li key={workflow} className="flex gap-3">
                         <span className="text-[var(--accent)]">—</span>
-                        <span>{workflow}</span>
+                    <span className="min-w-0">{workflow}</span>
                       </li>
                     ))}
                   </ul>
@@ -141,7 +141,7 @@ export default async function ProjectPage({
                       {project.technicalDecisions.map((decision) => (
                         <li key={decision} className="flex gap-3">
                           <span className="text-[var(--accent)]">—</span>
-                          <span>{decision}</span>
+                          <span className="min-w-0">{decision}</span>
                         </li>
                       ))}
                     </ul>

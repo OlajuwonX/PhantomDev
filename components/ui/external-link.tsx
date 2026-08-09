@@ -13,7 +13,7 @@ export function ExternalLink({
   return (
     <a
       className={cn(
-        "underline decoration-[var(--border)] underline-offset-4 transition-colors hover:text-[var(--accent)] hover:gray-200",
+        "underline decoration-[var(--border)] underline-offset-4 transition-colors hover:text-[var(--accent)] hover:decoration-[var(--accent)]",
         className,
       )}
       target="_blank"

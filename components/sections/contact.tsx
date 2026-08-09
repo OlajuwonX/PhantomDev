@@ -37,11 +37,11 @@ export function Contact() {
       } else {
         const data = await response.json();
         setFormState("error");
-        setFormMessage(data.message || "Unable to send message. Please check your input and try again.");
+        setFormMessage(data.message || "Something went wrong. Please try again.");
       }
     } catch {
       setFormState("error");
-      setFormMessage("Failed to send message. Please try again.");
+      setFormMessage("Something went wrong. Please try again.");
     }
   }
 
@@ -77,7 +77,7 @@ export function Contact() {
                 name="name"
                 required
                 disabled={formState === "loading"}
-                className="w-full border border-[var(--border)] bg-[var(--background)] px-4 py-2 text-[var(--foreground)] placeholder-[var(--muted-foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+                className="min-h-11 w-full border border-[var(--border)] bg-[var(--background)] px-4 py-2 font-sans text-[var(--foreground)] placeholder-[var(--muted-foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
               />
             </div>
 
@@ -91,7 +91,7 @@ export function Contact() {
                 name="email"
                 required
                 disabled={formState === "loading"}
-                className="w-full border border-[var(--border)] bg-[var(--background)] px-4 py-2 text-[var(--foreground)] placeholder-[var(--muted-foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+                className="min-h-11 w-full border border-[var(--border)] bg-[var(--background)] px-4 py-2 font-sans text-[var(--foreground)] placeholder-[var(--muted-foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
               />
             </div>
 
@@ -105,7 +105,7 @@ export function Contact() {
                 required
                 rows={5}
                 disabled={formState === "loading"}
-                className="w-full border border-[var(--border)] bg-[var(--background)] px-4 py-2 text-[var(--foreground)] placeholder-[var(--muted-foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+                className="w-full border border-[var(--border)] bg-[var(--background)] px-4 py-2 font-sans text-[var(--foreground)] placeholder-[var(--muted-foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
               />
             </div>
 
@@ -120,7 +120,7 @@ export function Contact() {
             <button
               type="submit"
               disabled={formState === "loading"}
-              className="inline-flex min-h-[var(--button-height)] items-center justify-center border border-[var(--foreground)] bg-[var(--foreground)] px-5 text-sm font-bold uppercase tracking-[0.1em] text-white transition-colors disabled:opacity-50 hover:bg-transparent hover:text-[var(--foreground)]"
+              className="button button-primary"
             >
               {formState === "loading" ? "Sending..." : "Send message"}
             </button>
@@ -139,7 +139,7 @@ export function Contact() {
                 role="alert"
                 className="text-sm font-medium text-[var(--muted-foreground)]"
               >
-                ✗ {formMessage}
+                {formMessage}
               </p>
             )}
           </form>

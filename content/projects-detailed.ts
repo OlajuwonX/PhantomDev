@@ -184,7 +184,8 @@ export const projectsDetailed: ProjectDetail[] = [
     slug: "collagecollectives",
     name: "CollageCollectives",
     category: "Photography Portfolio",
-    summary: "Visual storytelling and photography portfolio with smooth animations.",
+    summary:
+      "Visual storytelling and photography portfolio with smooth animations.",
     description:
       "CollageCollectives is a high-performance photography portfolio emphasizing visual storytelling, responsive media handling, and smooth interaction design. Built to showcase photography while maintaining fast load times despite heavy image and video assets.",
     status: "Live",
@@ -224,7 +225,8 @@ export const projectsDetailed: ProjectDetail[] = [
     slug: "investa",
     name: "Investa",
     category: "Investment Landing Page",
-    summary: "Clean, polished investment-themed landing page with strong hierarchy.",
+    summary:
+      "Clean, polished investment-themed landing page with strong hierarchy.",
     description:
       "Investa is a professional investment landing page demonstrating clean UI design, strong visual hierarchy, fast image loading, and responsive implementation. Showcases polished interaction design and investment-focused messaging.",
     status: "Live",

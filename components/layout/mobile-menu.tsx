@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Logo } from "@/components/layout/logo";
 import { Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { ButtonLink } from "@/components/ui/button-link";
@@ -63,14 +64,9 @@ export function MobileMenu() {
           className="fixed inset-0 z-50 bg-[var(--background)] px-[var(--page-gutter)] py-5"
         >
           <div className="flex items-center justify-between">
-            <Link
-              href="/"
-              aria-label="Olajuwon Olasimbo home"
-              onClick={closeMenu}
-              className="font-heading min-h-11 text-lg font-semibold uppercase tracking-[0.08em]"
-            >
-              OO
-            </Link>
+            <div onClick={closeMenu}>
+              <Logo />
+            </div>
             <button
               ref={closeRef}
               type="button"
@@ -103,7 +99,7 @@ export function MobileMenu() {
 
           <div className="mt-12">
             <ButtonLink
-              href="/documents/OlajuwonCV.pdf"
+              href="/documents/Olajuwon_Olasimbo_Resume_v4.pdf"
               variant="secondary"
               onClick={closeMenu}
             >

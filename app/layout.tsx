@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
-import { Space_Grotesk, Work_Sans } from "next/font/google";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import type { Metadata } from "next";
+import { Space_Grotesk, Work_Sans } from "next/font/google";
 import "./globals.css";
 
 const headingFont = Space_Grotesk({
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
       "Frontend software engineer building production-minded web applications, full-stack Next.js products, and accessible responsive interfaces.",
     images: [
       {
-        url: "https://olajuwon.dev/pdlogo1.png",
+        url: "https://olajuwon.dev/brand/pdlogo1.png",
         width: 512,
         height: 512,
         alt: "Olajuwon Olasimbo",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     description:
       "Frontend software engineer building production-minded web applications, full-stack Next.js products, and accessible responsive interfaces.",
     creator: "@PhantomXDev",
-    images: ["https://olajuwon.dev/pdlogo1.png"],
+    images: ["https://olajuwon.dev/brand/pdlogo1.png"],
   },
   robots: {
     index: true,
@@ -71,11 +71,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/pdlogo1.png", sizes: "any" },
-      { url: "/pdlogo1.png", sizes: "any", type: "image/png" },
+      { url: "/icon.png", sizes: "512x512", type: "image/png" },
+      { url: "/brand/pdlogo1.png", sizes: "512x512", type: "image/png" },
     ],
-    shortcut: "/pdlogo1.png",
-    apple: "/pdlogo1.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
   authors: [
     {
@@ -92,7 +92,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${headingFont.variable} ${bodyFont.variable} font-sans`}>
+      <body
+        className={`${headingFont.variable} ${bodyFont.variable} font-sans`}
+      >
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>

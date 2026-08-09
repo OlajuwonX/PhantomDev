@@ -5,23 +5,23 @@ export type CapabilityArea = {
 
 export const engineeringCapabilities: CapabilityArea[] = [
   {
-    title: "Product Engineering",
+    title: "Frontend Architecture",
     description:
-      "Building complete digital products from concept to launch. I focus on solving real problems, creating clear user flows, and making sure the interface works intuitively. Experience shipping web applications, dashboards, and SaaS platforms.",
+      "Architecting and shipping production-grade frontend applications with React, Next.js, and TypeScript. Experienced in application architecture, API contracts, state management, RBAC, and scalable patterns that keep complex products maintainable.",
   },
   {
-    title: "Performance & Accessibility",
+    title: "Performance Engineering",
     description:
-      "Writing code that's fast and usable for everyone. Optimizing images, managing bundle size, implementing keyboard navigation, and ensuring WCAG compliance. Performance isn't an afterthought—it's built in from the start.",
+      "Engineering fast, reliable interfaces for data-intensive applications. Experienced in bundle optimization, lazy loading, code splitting, rendering performance, API pagination, caching, Core Web Vitals, Lighthouse, and performance monitoring.",
   },
   {
-    title: "Full-Stack Next.js",
+    title: "SaaS Product Engineering",
     description:
-      "Building complete applications with Next.js App Router. Server components, API routes, dynamic rendering, image optimization, and metadata management. Understanding how to architect apps that scale and stay maintainable.",
+      "Building complete SaaS products around real business problems, from product workflows and dashboards to API integrations and scalable frontend architecture. Experience across AI-powered platforms, enterprise applications, e-commerce systems, analytics dashboards, and cloud products, including Azure-based solutions and multi-tenant environments.",
   },
   {
-    title: "Mobile & Interface Engineering",
+    title: "Mobile Application Engineering",
     description:
-      "Creating interfaces that work beautifully on all screen sizes. Experience with React Native, responsive design, and mobile-first thinking. Touch interactions, navigation patterns, and performance on lower-end devices.",
+      "Building responsive and performant mobile applications with React Native and Expo. Focused on intuitive mobile UX, touch interactions, navigation patterns, secure data workflows, and reliable experiences across different devices and performance constraints.",
   },
 ];

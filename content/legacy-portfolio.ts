@@ -126,22 +126,43 @@ export const legacyProjects = [
     description:
       "Linka is a real-time messaging project with websocket/socket.io experiments, image sending, profile image upload, online indicators, and authentication.",
     link: "https://chatapp-84n6.onrender.com/",
-    images: ["/chat1.png", "/chat2.png", "/chat3.png", "/chat4.png", "/chat5.png"],
+    images: [
+      "/chat1.png",
+      "/chat2.png",
+      "/chat3.png",
+      "/chat4.png",
+      "/chat5.png",
+    ],
   },
   {
     name: "Xpay",
     description:
       "Xpay is an e-commerce demo project with theme toggle, product detail modal, cart page, and route-based shopping flow.",
     link: "https://xpay-1ug.pages.dev/",
-    images: ["/xpay1.png", "/xpay2.png", "/xpay3.png", "/xpay4.png", "/xpay5.png"],
+    images: [
+      "/xpay1.png",
+      "/xpay2.png",
+      "/xpay3.png",
+      "/xpay4.png",
+      "/xpay5.png",
+    ],
   },
 ] as const;
 
 export const legacySocialLinks = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/olasimbo-olajuwon-b986b7230/" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/olasimbo-olajuwon-b986b7230/",
+  },
   { label: "X", href: "https://x.com/PhantomXDev" },
-  { label: "Instagram", href: "https://www.instagram.com/yung_in?igsh=cXNjZGFueGUzaDBk&utm_source=qr" },
-  { label: "TikTok", href: "https://www.tiktok.com/@olajuwonx15?_t=ZS-8zqvw3thoy8&_r=1" },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/yung_in?igsh=cXNjZGFueGUzaDBk&utm_source=qr",
+  },
+  {
+    label: "TikTok",
+    href: "https://www.tiktok.com/@olajuwonx15?_t=ZS-8zqvw3thoy8&_r=1",
+  },
   { label: "GitHub", href: "https://github.com/OlajuwonX" },
 ] as const;
 
@@ -149,7 +170,11 @@ export const preservedAssetMap = {
   resume: "/documents/OlajuwonCV.pdf",
   brandLogo: "/brand/pdlogo1.png",
   projectImages: {
-    hireLens: ["/images/projects/hirelens/hl1.png", "/images/projects/hirelens/hl2.png", "/images/projects/hirelens/hl3.png"],
+    hireLens: [
+      "/images/projects/hirelens/hl1.png",
+      "/images/projects/hirelens/hl2.png",
+      "/images/projects/hirelens/hl3.png",
+    ],
     orvynMedia: [
       "/images/projects/orvyn-media/orvyn1.png",
       "/images/projects/orvyn-media/orvyn2.png",

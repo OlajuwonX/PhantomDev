@@ -8,11 +8,9 @@ type ButtonLinkProps = ComponentPropsWithoutRef<typeof Link> & {
 };
 
 const variants = {
-  primary:
-    "border border-[var(--foreground)] bg-[var(--foreground)] text-white hover:bg-transparent hover:text-[var(--foreground)]",
-  secondary:
-    "border border-[var(--foreground)] text-[var(--foreground)] hover:bg-[var(--foreground)] hover:text-white",
-  text: "min-h-0 border-0 px-0 underline decoration-[var(--border)] hover:decoration-[var(--foreground)]",
+  primary: "button-primary",
+  secondary: "button-secondary",
+  text: "button-text",
 };
 
 export function ButtonLink({
@@ -21,17 +19,15 @@ export function ButtonLink({
   variant = "primary",
   ...props
 }: ButtonLinkProps) {
-  const isText = variant === "text";
+  const href = String(props.href);
+  const isExternal = href.startsWith("http");
 
   return (
     <Link
-      className={cn(
-        "inline-flex min-h-[var(--button-height)] items-center justify-center rounded-none px-5 text-sm font-bold uppercase tracking-[0.1em] transition-colors",
-        isText ? "justify-start" : "",
-        variants[variant],
-        className,
-      )}
       {...props}
+      className={cn("button", variants[variant], className)}
+      target={isExternal ? "_blank" : props.target}
+      rel={isExternal ? "noopener noreferrer" : props.rel}
     >
       {children}
     </Link>

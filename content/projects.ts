@@ -83,7 +83,8 @@ export const projects: Project[] = [
     slug: "collagecollectives",
     name: "CollageCollectives",
     category: "Photography Portfolio",
-    summary: "Visual storytelling and photography portfolio with smooth animations.",
+    summary:
+      "Visual storytelling and photography portfolio with smooth animations.",
     description:
       "CollageCollectives is a high-performance photography portfolio emphasizing visual storytelling, responsive media handling, and smooth interaction design. Built to showcase photography while maintaining fast load times despite heavy image and video assets.",
     status: "Live",
@@ -96,12 +97,19 @@ export const projects: Project[] = [
     featured: true,
     kind: "interface",
     liveUrl: "https://collagecollectives.vercel.app/",
+    image: {
+      src: "/collagecollectives/collagecollectives-1.png",
+      alt: "CollageCollectives photography portfolio homepage",
+      width: 1440,
+      height: 900,
+    },
   },
   {
     slug: "investa",
     name: "Investa",
     category: "Investment Landing Page",
-    summary: "Clean, polished investment-themed landing page with strong hierarchy.",
+    summary:
+      "Clean, polished investment-themed landing page with strong hierarchy.",
     description:
       "Investa is a professional investment landing page demonstrating clean UI design, strong visual hierarchy, fast image loading, and responsive implementation. Showcases polished interaction design and investment-focused messaging.",
     status: "Live",
@@ -114,6 +122,12 @@ export const projects: Project[] = [
     featured: true,
     kind: "interface",
     liveUrl: "https://inve-sta.vercel.app/",
+    image: {
+      src: "/investa/Screenshot 2026-08-07 054825.png",
+      alt: "Investa investment landing page interface",
+      width: 1440,
+      height: 900,
+    },
   },
 ];
 
@@ -126,4 +140,7 @@ export const getFeaturedInterfaces = () =>
 export const getProjectBySlug = (slug: string) =>
   projects.find((p) => p.slug === slug);
 
-export const getAllSlugs = () => projects.map((p) => p.slug);
+export const getCaseStudySlugs = () =>
+  projects.filter((p) => p.kind === "product").map((p) => p.slug);
+
+export const getAllSlugs = getCaseStudySlugs;

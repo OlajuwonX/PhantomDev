@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
-import { getAllSlugs } from "@/content/projects";
+import { getCaseStudySlugs } from "@/content/projects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://olajuwon.dev";
-  const projectSlugs = getAllSlugs();
+  const projectSlugs = getCaseStudySlugs();
 
   const projectUrls: MetadataRoute.Sitemap = projectSlugs.map((slug) => ({
     url: `${baseUrl}/work/${slug}`,

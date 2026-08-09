@@ -19,7 +19,13 @@ export const experienceEntries: ExperienceEntry[] = [
       "Replaced WebSockets with TanStack Query, reducing API calls by 35% and improving data retrieval by 25%+",
       "Established Playwright testing standards with 20+ test suites, reducing regression defects by 40%",
     ],
-    technologies: ["React", "TypeScript", "TanStack Query", "ApexCharts", "Playwright"],
+    technologies: [
+      "React",
+      "TypeScript",
+      "TanStack Query",
+      "ApexCharts",
+      "Playwright",
+    ],
   },
   {
     company: "Orvyn Media",

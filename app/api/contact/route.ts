@@ -6,7 +6,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(100),
   email: z.string().email("Invalid email address"),
-  message: z.string().min(10, "Message must be at least 10 characters").max(5000),
+  message: z.string().min(3, "Message must be at least 3 characters").max(5000),
   honeypot: z.string().optional(),
 });
 
@@ -20,10 +20,12 @@ export async function POST(request: Request) {
 
     const validatedData = contactSchema.parse(body);
 
-    const destinationEmail = process.env.CONTACT_EMAIL || "olasimbo15@yahoo.com";
+    const destinationEmail =
+      process.env.CONTACT_RECIPIENT_EMAIL || "olasimboolajuwon@gmail.com";
+    const fromEmail = process.env.CONTACT_FROM_EMAIL || "onboarding@resend.dev";
 
     const { error } = await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>",
+      from: `Contact Form <${fromEmail}>`,
       to: destinationEmail,
       replyTo: validatedData.email,
       subject: `New contact form submission from ${validatedData.name}`,
@@ -38,28 +40,29 @@ export async function POST(request: Request) {
 
     if (error) {
       console.error("Resend error:", error);
-      return new Response(
-        JSON.stringify({ success: false, error: "Failed to send email" }),
-        { status: 500 }
+      return Response.json(
+        { success: false, message: "Something went wrong. Please try again." },
+        { status: 500 },
       );
     }
 
     return new Response(JSON.stringify({ success: true }), { status: 200 });
   } catch (error) {
     if (error instanceof z.ZodError) {
-      return new Response(
-        JSON.stringify({
+      const issue = error.issues[0]?.message;
+      return Response.json(
+        {
           success: false,
-          message: "Please check your input and try again.",
-        }),
-        { status: 400 }
+          message: issue || "Please check your input and try again.",
+        },
+        { status: 400 },
       );
     }
 
     console.error("Contact form error:", error);
-    return new Response(
-      JSON.stringify({ success: false, error: "Internal server error" }),
-      { status: 500 }
+    return Response.json(
+      { success: false, message: "Something went wrong. Please try again." },
+      { status: 500 },
     );
   }
 }

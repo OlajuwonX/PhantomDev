@@ -31,7 +31,7 @@ export function Header() {
           </ul>
         </nav>
         <div className="hidden md:block">
-          <ButtonLink href="/documents/OlajuwonCV.pdf" variant="secondary">
+          <ButtonLink href="/documents/Olajuwon_Olasimbo_Resume_v4.pdf" variant="secondary">
             Resume
           </ButtonLink>
         </div>
