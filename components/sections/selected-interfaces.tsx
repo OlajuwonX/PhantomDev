@@ -25,17 +25,17 @@ export function SelectedInterfaces() {
             >
               <div className="flex-shrink-0 md:w-1/2">
                 {project.image ? (
-                  <div className="relative aspect-video overflow-hidden bg-[var(--surface-subtle)]">
+                  <div className="relative flex aspect-[4/3] max-h-[28rem] min-h-[16rem] w-full items-center justify-center overflow-hidden border border-[var(--border)] bg-[var(--surface-subtle)] p-3 sm:aspect-[16/10] sm:p-4 md:min-h-[22rem]">
                     <Image
                       src={project.image.src}
                       alt={project.image.alt}
                       fill
-                      className="object-cover"
+                      className="object-contain p-3 sm:p-4"
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
                 ) : (
-                  <div className="aspect-video bg-[var(--surface-subtle)] flex items-center justify-center">
+                  <div className="flex aspect-[4/3] min-h-[16rem] items-center justify-center border border-[var(--border)] bg-[var(--surface-subtle)] sm:aspect-[16/10] md:min-h-[22rem]">
                     <p className="text-sm text-[var(--muted-foreground)]">
                       Image pending
                     </p>

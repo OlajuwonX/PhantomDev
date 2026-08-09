@@ -1,20 +1,24 @@
 "use client";
 
-import { useState } from "react";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionHeader } from "@/components/layout/section-header";
 import { ExternalLink } from "@/components/ui/external-link";
+import { useState } from "react";
 
 export function Contact() {
-  const [formState, setFormState] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [formState, setFormState] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
   const [formMessage, setFormMessage] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setFormState("loading");
+    setFormMessage("");
+    const form = e.currentTarget;
 
-    const formData = new FormData(e.currentTarget);
+    const formData = new FormData(form);
     const data = {
       name: formData.get("name"),
       email: formData.get("email"),
@@ -29,15 +33,18 @@ export function Contact() {
         body: JSON.stringify(data),
       });
 
-      if (response.ok) {
+      const result = await response.json().catch(() => null);
+
+      if (response.ok && result?.success) {
         setFormState("success");
-        setFormMessage("Message sent successfully. I'll get back to you soon!");
-        e.currentTarget.reset();
+        setFormMessage("Message sent");
+        form.reset();
         setTimeout(() => setFormState("idle"), 5000);
       } else {
-        const data = await response.json();
         setFormState("error");
-        setFormMessage(data.message || "Something went wrong. Please try again.");
+        setFormMessage(
+          result?.message || "Something went wrong. Please try again.",
+        );
       }
     } catch {
       setFormState("error");
@@ -68,7 +75,10 @@ export function Contact() {
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label htmlFor="name" className="mb-2 block text-sm font-semibold">
+              <label
+                htmlFor="name"
+                className="mb-2 block text-sm font-semibold"
+              >
                 Name
               </label>
               <input
@@ -82,7 +92,10 @@ export function Contact() {
             </div>
 
             <div>
-              <label htmlFor="email" className="mb-2 block text-sm font-semibold">
+              <label
+                htmlFor="email"
+                className="mb-2 block text-sm font-semibold"
+              >
                 Email
               </label>
               <input
@@ -96,7 +109,10 @@ export function Contact() {
             </div>
 
             <div>
-              <label htmlFor="message" className="mb-2 block text-sm font-semibold">
+              <label
+                htmlFor="message"
+                className="mb-2 block text-sm font-semibold"
+              >
                 Message
               </label>
               <textarea

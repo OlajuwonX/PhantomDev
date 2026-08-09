@@ -24,7 +24,7 @@ export async function POST(request: Request) {
       process.env.CONTACT_RECIPIENT_EMAIL || "olasimboolajuwon@gmail.com";
     const fromEmail = process.env.CONTACT_FROM_EMAIL || "onboarding@resend.dev";
 
-    const { error } = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: `Contact Form <${fromEmail}>`,
       to: destinationEmail,
       replyTo: validatedData.email,
@@ -46,7 +46,14 @@ export async function POST(request: Request) {
       );
     }
 
-    return new Response(JSON.stringify({ success: true }), { status: 200 });
+    return Response.json(
+      {
+        success: true,
+        message: "Message sent",
+        id: data?.id,
+      },
+      { status: 200 },
+    );
   } catch (error) {
     if (error instanceof z.ZodError) {
       const issue = error.issues[0]?.message;
