@@ -25,6 +25,7 @@ A production-ready portfolio built with Next.js 15, showcasing frontend software
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js 18+
 - npm
 

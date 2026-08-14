@@ -69,9 +69,7 @@ export function SelectedInterfaces() {
                 </div>
 
                 {project.liveUrl && (
-                  <ButtonLink href={project.liveUrl}>
-                    Live site ↗
-                  </ButtonLink>
+                  <ButtonLink href={project.liveUrl}>Live site ↗</ButtonLink>
                 )}
               </div>
             </article>

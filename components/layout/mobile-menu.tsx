@@ -55,7 +55,11 @@ export function MobileMenu() {
         onClick={() => setOpen((current) => !current)}
         className="inline-flex min-h-11 min-w-11 items-center justify-center border border-[var(--foreground)]"
       >
-        {open ? <X aria-hidden="true" size={20} /> : <Menu aria-hidden="true" size={20} />}
+        {open ? (
+          <X aria-hidden="true" size={20} />
+        ) : (
+          <Menu aria-hidden="true" size={20} />
+        )}
       </button>
 
       {open ? (

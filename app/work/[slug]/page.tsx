@@ -124,7 +124,7 @@ export default async function ProjectPage({
                     {project.keyWorkflows.map((workflow) => (
                       <li key={workflow} className="flex gap-3">
                         <span className="text-[var(--accent)]">—</span>
-                    <span className="min-w-0">{workflow}</span>
+                        <span className="min-w-0">{workflow}</span>
                       </li>
                     ))}
                   </ul>

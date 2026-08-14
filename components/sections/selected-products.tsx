@@ -43,7 +43,10 @@ export function SelectedProducts() {
 
               <div className="mb-4 flex flex-wrap gap-1">
                 {project.stack.map((tech, i) => (
-                  <span key={tech} className="text-sm text-[var(--muted-foreground)]">
+                  <span
+                    key={tech}
+                    className="text-sm text-[var(--muted-foreground)]"
+                  >
                     {tech}
                     {i < project.stack.length - 1 && (
                       <span className="mx-1">·</span>
