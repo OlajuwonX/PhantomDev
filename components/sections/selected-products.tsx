@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionHeader } from "@/components/layout/section-header";
@@ -63,6 +64,18 @@ export function SelectedProducts() {
                   </li>
                 ))}
               </ul>
+
+              {project.image && (
+                <div className="mb-6 aspect-video overflow-hidden bg-[var(--surface-subtle)]">
+                  <Image
+                    src={project.image.src}
+                    alt={project.image.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 100vw"
+                  />
+                </div>
+              )}
 
               <p className="mb-6 text-xs font-semibold uppercase tracking-[0.08em] text-[var(--muted-foreground)]">
                 {project.status}
