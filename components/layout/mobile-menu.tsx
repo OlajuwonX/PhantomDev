@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { Logo } from "@/components/layout/logo";
-import { Menu, X } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
 import { ButtonLink } from "@/components/ui/button-link";
+import { Menu, X } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 const navItems = [
   { label: "Work", href: "/#work" },
@@ -103,7 +103,7 @@ export function MobileMenu() {
 
           <div className="mt-12">
             <ButtonLink
-              href="/documents/Olajuwon_Olasimbo_Resume_v4.pdf"
+              href="/documents/Olajuwon_Olasimbo_Frontend_Software_Engineer_v5.pdf"
               variant="secondary"
               onClick={closeMenu}
             >

@@ -1,8 +1,8 @@
-import Link from "next/link";
-import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/layout/container";
 import { Logo } from "@/components/layout/logo";
 import { MobileMenu } from "@/components/layout/mobile-menu";
+import { ButtonLink } from "@/components/ui/button-link";
+import Link from "next/link";
 
 const navItems = [
   { label: "Work", href: "/#work" },
@@ -32,7 +32,7 @@ export function Header() {
         </nav>
         <div className="hidden md:block">
           <ButtonLink
-            href="/documents/Olajuwon_Olasimbo_Resume_v4.pdf"
+            href="/documents/Olajuwon_Olasimbo_Frontend_Software_Engineer_v5.pdf"
             variant="secondary"
           >
             Resume

@@ -1,5 +1,5 @@
-import type { MetadataRoute } from "next";
 import { getCaseStudySlugs } from "@/content/projects";
+import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://olajuwon.dev";

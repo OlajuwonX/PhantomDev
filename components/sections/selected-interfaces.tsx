@@ -1,9 +1,9 @@
-import Image from "next/image";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionHeader } from "@/components/layout/section-header";
 import { ButtonLink } from "@/components/ui/button-link";
 import { getFeaturedInterfaces } from "@/content/projects";
+import Image from "next/image";
 
 export function SelectedInterfaces() {
   const interfaces = getFeaturedInterfaces();

@@ -46,7 +46,7 @@ export function Footer() {
             </p>
             <div className="flex flex-col gap-2">
               <a
-                href="/documents/Olajuwon_Olasimbo_Resume_v4.pdf"
+                href="/documents/Olajuwon_Olasimbo_Frontend_Software_Engineer_v5.pdf"
                 className="text-sm underline decoration-[var(--border)] underline-offset-4 transition-colors hover:text-[var(--accent)] hover:decoration-[var(--accent)]"
               >
                 Download Resume ↗
